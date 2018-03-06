@@ -1,0 +1,20 @@
+<div class="container border mb-3">
+    <div class="row">
+        <div class="col-sm-6 py-3 d-flex flex-column justify-content-between">
+            <div>
+                <img src="{{employe.photo}}" alt="" width="100%">
+            </div>
+        </div>
+        <div class="col-sm-6 py-3 d-flex flex-column justify-content-between">
+            <h1>{{employe.name.firstName + ' ' + employe.name.lastName}}</h1>
+            <h3>{{employe.normatives.position.position}}</h3>
+            <div class="my-3 text-secondary">
+                <p>Email : <u>{{employe.email}}</u></p>
+                <p>Status : <u>{{employe.normatives.status.status}}</u></p>
+                <p>Availability : <u ng-repeat="option in employe.normatives.availability">{{option}} ,  </u></p>
+                <p>Hours per week Left : <u>{{employe.normatives.hoursPerWeekLeft}}</u></p>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

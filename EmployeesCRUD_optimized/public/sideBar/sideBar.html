@@ -1,0 +1,7 @@
+<div ng-controller="sideBarController" class="pt-1">
+    <a ui-sref="index.addEmploye" class="btn btn-block btn-info" ng-if="!employeID()" class="d-block" height="50%">addEmploye</a>
+    <a ui-sref="index.editEmploye({id: employeID()})" class="btn btn-block btn-success" ng-if="employeID()">editEmploye</a>
+    <button type="button" class="btn btn-block btn-danger" ng-click="removeEmploye()" ng-if="employeID()">removeEmploye</button>
+</div>    
+    
+   

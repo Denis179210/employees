@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 border bordered p-4 mb-4">
+            <form action="" class="container">
+                <legend class="mb-4"><strong>New employe</strong></legend>
+                <div class="row">
+                    <div class="col-sm-6">
+                         <label class="w-100">
+                            first name :
+                            <input  class="form-control" type="text" placeholder="First name" ng-model="employe.name.firstName" ng-required="employe.name.firstName">
+                        </label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="w-100">
+                            last name :
+                            <input class="form-control" type="text" placeholder="Last name" ng-model="employe.name.lastName" ng-required="employe.name.lastName">
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="col-sm-12">
+                        <label  class="w-100">
+                            email :
+                            <input class="form-control" type="email" placeholder="Email" ng-model="employe.email" required>
+                        </label>
+                   </div>
+                </div>
+                
+                <div class="row">
+                   <div class="col-sm-6 d-flex flex-column justify-content-between">
+                        <div class="border p-2 rounded">
+                            <legend>avaliability : </legend>
+                                <label><input type="checkbox"
+                                              ng-true-value="'fullTime'"
+                                              ng-model="_availabilityFullTime"
+                                              ng-change="runFull()"> full-time</label>
+                                
+                                <label><input type="checkbox"
+                                              ng-true-value="'partTime'"
+                                              ng-model="_availabilityPartTime"
+                                              ng-change="runPart()"> part-time</label>
+                        </div>
+                        <label for="position"></label>
+                        position :
+                        <select name="position" class="custom-select" id="position" ng-model="employe.normatives.position">
+                            <option value="{{position._id}}" ng-repeat="position in positions" ng-selected="employe.normatives.position.position === position.position">{{position.position}}</option>
+                        </select>
+                    
+                        <label for="status"></label>
+                        status :
+                        <select name="status" class="custom-select" id="status" ng-model="employe.normatives.status">
+                            <option value="{{status._id}}" ng-repeat="status in statuses" ng-selected="employe.normatives.status.status === status.status">{{status.status}}</option>
+                        </select>
+                    
+                        <label for="hours_per_week_left"></label>
+                        hours per week left :
+                        <input type="number" min="0" name="hoursPerWeekLeft" class="form-control" id="hours_per_week_left" ng-model="employe.normatives.hoursPerWeekLeft">
+                        <div class="input-group my-4">
+                            <div class="custom-file mb-1">
+                                <label for="photo" class="custom-file-label">Choose photo :</label>
+                                <input class="custom-file-input"
+                                        type="file"
+                                        placeholder="Photo"
+                                        id="photo"
+                                        ng-click="clearURL()"
+                                        onchange="angular.element(this).scope().showPreview(this)"
+                                        onblur="angular.element(this).scope().showPreview(this)">
+                            </div>
+                            <label class="w-100">
+                                or source URL :
+                                <input class="form-control" type="text" placeholder="URL" ng-model="_url" ng-change="setURL()" ng-click="clearURL()" ng-blur="clearURL()">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 d-flex flex-column justify-content-around">
+                        <div class="">
+                            <img src="{{getSRC()}}" width="100%" class="rounded-top preview">
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-5">
+                    <div class="col-sm-12">
+                        <button type="button" class="btn btn-outline-success btn-block" ng-click="done($event)">Done</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
